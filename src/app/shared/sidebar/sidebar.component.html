@@ -1,0 +1,52 @@
+<!-- sidebar.component.html -->
+<div class="sidebar" [class.collapsed]="isCollapsed">
+  <div class="sidebar-header">
+    <img class="img-user" src="https://images.unsplash.com/photo-1519681393784-d120267933ba" alt="image_user">
+    <div class="encabezado" *ngIf="!isCollapsed" [class.show]="encabezadoShow()">
+      <h5 style="margin-bottom: 0px;">rodrigo sanchez</h5>
+      <h6 style="margin-bottom: 0px;">administrador</h6>
+    </div>
+  </div>
+
+  <ul class="nav flex-column">
+    <li class="nav-item" *ngFor="let item of menuItems">
+      <a class="nav-link"
+         (click)="toggleMenu(item.title)"
+         [ngClass]="{'active': activeMenu === item.title}">
+        <i [class]="item.icon"></i>
+        <span *ngIf="!isCollapsed">{{ item.title }}</span>
+        <i class="fas fa-chevron-down menu-arrow"
+           *ngIf="item.submenu.length > 0 && !isCollapsed"></i>
+      </a>
+
+      <ul class="submenu"
+          *ngIf="item.submenu.length > 0"
+          [class.show]="activeMenu === item.title && !isCollapsed">
+        <li class="nav-item" *ngFor="let subItem of item.submenu">
+          <a class="nav-link">
+            <span>{{ subItem.title }}</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="position-absolute bottom-0 start-0 p-3 w-100">
+    <div class="btn-collapse">
+      <button class="toggle-btn" (click)="toggleCollapse()">
+        <i class="fas" [class.fa-angles-left]="!isCollapsed" [class.fa-angles-right]="isCollapsed"></i>
+        <span *ngIf="!isCollapsed"></span>
+      </button>
+
+    </div>
+  </div>
+</div>
+
+<div class="main-content" [class.collapsed]="isCollapsed">
+  <!-- Tu contenido principal irá aquí -->
+  <app-navbar></app-navbar>
+  <div class="p-4">
+    <ng-content></ng-content>
+
+  </div>
+</div>

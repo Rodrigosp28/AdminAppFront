@@ -1,0 +1,42 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #c2e9fb, #a1c4fd);
+}
+
+/* Tarjeta del login */
+.login-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  max-width: 400px;
+  width: 100%;
+  text-align: left;
+}
+
+/* Imagen centrada */
+.login-image {
+  width: 250px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+/* Botón moderno */
+.btn-primary {
+  background: #007bff;
+  border: none;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}
+
+.redborder{
+  border-color:red;
+  box-shadow: 0px 0px 5px rgba(243, 38, 38, 0.83);
+}

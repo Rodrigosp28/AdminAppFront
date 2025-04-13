@@ -1,0 +1,153 @@
+
+
+/* Estilos para el sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  width: 250px;
+  transition: all 0.5s;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+              url('https://wieck-nissanao-production.s3.amazonaws.com/photos/af0c8d4b83dcce0d3c71e7f9e4b718b2565d5cdd/preview-928x522.jpg') center/cover no-repeat;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+
+  &.collapsed {
+    width: 80px;
+
+
+    .nav-link span,
+    .menu-arrow {
+      display: none;
+    }
+
+    .nav-link {
+      justify-content: center;
+    }
+
+    .submenu {
+      position: absolute;
+      left: 100%;
+      width: 200px;
+      background: rgba(0, 0, 0, 0.9);
+      border-radius: 0 5px 5px 0;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+      display: none;
+    }
+
+    .nav-item:hover .submenu {
+      display: block;
+    }
+  }
+}
+
+.sidebar-header {
+  padding: 20px;
+  color: white;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* h4 {
+    margin: 0;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  } */
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+
+  &:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    cursor:pointer;
+  }
+
+  i {
+    margin-right: 10px;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+  }
+
+  span {
+    transition: all 0.3s;
+  }
+}
+
+.menu-arrow {
+  margin-left: auto;
+  transition: all 0.3s;
+}
+
+.submenu {
+  list-style: none;
+  padding-left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-out;
+
+  &.show {
+    max-height: 500px;
+    transition: max-height 0.5s ease-in;
+  }
+
+  .nav-link {
+    padding-left: 50px;
+  }
+}
+
+.main-content {
+  margin-left: 250px;
+  transition: all 0.3s;
+
+  &.collapsed {
+    margin-left: 80px;
+  }
+}
+
+.toggle-btn {
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius:50%;
+
+  &:hover {
+    background: blue
+  }
+}
+
+.btn-collapse {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+}
+
+.img-user
+{
+  border-radius: 50%;
+  width: 50px; /* Ajusta el tamaño según sea necesario */
+  height: 50px; /* Asegúrate de que width y height sean iguales */
+  object-fit: cover; /* Recorta la imagen para que se ajuste al círculo */
+}
+
+.encabezado {
+  opacity: 0; /* Inicialmente, el encabezado está oculto */
+  transform: translateY(-20px); /* Inicialmente, el encabezado está desplazado hacia arriba */
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; /* Transición suave */
+}
+
+.encabezado.show {
+  opacity: 1; /* El encabezado se muestra completamente */
+  transform: translateY(0); /* El encabezado vuelve a su posición original */
+}
